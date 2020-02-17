@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.DayreportlogMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Dayreportlog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="productcode" jdbcType="VARCHAR" property="productcode" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="typecode" jdbcType="VARCHAR" property="typecode" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="totalnums" jdbcType="INTEGER" property="totalnums" />
+    <result column="onlineworknums" jdbcType="INTEGER" property="onlineworknums" />
+    <result column="onlinenoworknums" jdbcType="INTEGER" property="onlinenoworknums" />
+    <result column="servicetimes" jdbcType="INTEGER" property="servicetimes" />
+    <result column="errornums" jdbcType="INTEGER" property="errornums" />
+    <result column="traineronlinenums" jdbcType="INTEGER" property="traineronlinenums" />
+    <result column="newdevices" jdbcType="INTEGER" property="newdevices" />
+    <result column="newcustomer" jdbcType="INTEGER" property="newcustomer" />
+    <result column="delivernums" jdbcType="INTEGER" property="delivernums" />
+    <result column="reportdate" jdbcType="TIMESTAMP" property="reportdate" />
+    <result column="reportdatastr" jdbcType="VARCHAR" property="reportdatastr" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="updatedate" jdbcType="TIMESTAMP" property="updatedate" />
+  </resultMap>
+</mapper>
