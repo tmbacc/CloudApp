@@ -22,6 +22,9 @@ public class DayreportlogController {
     @Resource
     private DayreportlogService dayreportlogService;
 
+    
+    
+    
     @PostMapping("/add")
     public Result add(Dayreportlog dayreportlog) {
         dayreportlogService.save(dayreportlog);

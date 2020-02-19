@@ -5,6 +5,11 @@ import com.company.project.model.User;
 import com.company.project.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
+import tk.mybatis.mapper.entity.Condition;
+import tk.mybatis.mapper.entity.Example.Criteria;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,7 +50,15 @@ public class UserController {
         User user = userService.findById(id);
         return ResultGenerator.genSuccessResult(user);
     }
-
+    @PostMapping("/searchuser")
+    public Result searchuser(User user) {
+    	Condition condition=new Condition(User.class);    
+    	Criteria  criteria=condition.createCriteria();
+    	criteria.andCondition("username = '" + user.getUsername() + "'");
+    	criteria.andCondition("password = '" + user.getPassword() + "'");	      	 
+        List<User> list=userService.findByCondition(condition);       
+        return ResultGenerator.genSuccessResult(list);
+    }
     @PostMapping("/list")
     public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
