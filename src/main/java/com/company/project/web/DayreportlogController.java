@@ -18,14 +18,14 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2020/02/17.
+* Created by CodeGenerator on 2020/02/19.
 */
 @RestController
 @RequestMapping("/dayreportlog")
 public class DayreportlogController {
     @Resource
-    private DayreportlogService dayreportlogService;   
-    
+    private DayreportlogService dayreportlogService;
+
     @PostMapping("/add")
     public Result add(Dayreportlog dayreportlog) {
         dayreportlogService.save(dayreportlog);
@@ -57,7 +57,6 @@ public class DayreportlogController {
         List<Dayreportlog> list=dayreportlogService.findByCondition(condition);       
         return ResultGenerator.genSuccessResult(list);
     }
-
     @PostMapping("/list")
     public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);

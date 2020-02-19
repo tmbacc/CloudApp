@@ -28,15 +28,19 @@ public class Dayreportlog {
 
     private Integer onlinenoworknums;
 
-    private Integer servicetimes;
+    private String servicetimes;
 
     private Integer errornums;
 
-    private Integer traineronlinenums;
-
-    private Integer newdevices;
+    private String traineronlinenums;
 
     private Integer newcustomer;
+
+    private Integer newarragedevicesnums;
+
+    private Integer newonlinedevicesnums;
+
+    private String servicedevicesnums;
 
     private Integer delivernums;
 
@@ -191,14 +195,14 @@ public class Dayreportlog {
     /**
      * @return servicetimes
      */
-    public Integer getServicetimes() {
+    public String getServicetimes() {
         return servicetimes;
     }
 
     /**
      * @param servicetimes
      */
-    public void setServicetimes(Integer servicetimes) {
+    public void setServicetimes(String servicetimes) {
         this.servicetimes = servicetimes;
     }
 
@@ -219,29 +223,15 @@ public class Dayreportlog {
     /**
      * @return traineronlinenums
      */
-    public Integer getTraineronlinenums() {
+    public String getTraineronlinenums() {
         return traineronlinenums;
     }
 
     /**
      * @param traineronlinenums
      */
-    public void setTraineronlinenums(Integer traineronlinenums) {
+    public void setTraineronlinenums(String traineronlinenums) {
         this.traineronlinenums = traineronlinenums;
-    }
-
-    /**
-     * @return newdevices
-     */
-    public Integer getNewdevices() {
-        return newdevices;
-    }
-
-    /**
-     * @param newdevices
-     */
-    public void setNewdevices(Integer newdevices) {
-        this.newdevices = newdevices;
     }
 
     /**
@@ -256,6 +246,48 @@ public class Dayreportlog {
      */
     public void setNewcustomer(Integer newcustomer) {
         this.newcustomer = newcustomer;
+    }
+
+    /**
+     * @return newarragedevicesnums
+     */
+    public Integer getNewarragedevicesnums() {
+        return newarragedevicesnums;
+    }
+
+    /**
+     * @param newarragedevicesnums
+     */
+    public void setNewarragedevicesnums(Integer newarragedevicesnums) {
+        this.newarragedevicesnums = newarragedevicesnums;
+    }
+
+    /**
+     * @return newonlinedevicesnums
+     */
+    public Integer getNewonlinedevicesnums() {
+        return newonlinedevicesnums;
+    }
+
+    /**
+     * @param newonlinedevicesnums
+     */
+    public void setNewonlinedevicesnums(Integer newonlinedevicesnums) {
+        this.newonlinedevicesnums = newonlinedevicesnums;
+    }
+
+    /**
+     * @return servicedevicesnums
+     */
+    public String getServicedevicesnums() {
+        return servicedevicesnums;
+    }
+
+    /**
+     * @param servicedevicesnums
+     */
+    public void setServicedevicesnums(String servicedevicesnums) {
+        this.servicedevicesnums = servicedevicesnums;
     }
 
     /**

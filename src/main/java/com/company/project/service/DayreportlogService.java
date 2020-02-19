@@ -4,7 +4,7 @@ import com.company.project.core.Service;
 
 
 /**
- * Created by CodeGenerator on 2020/02/17.
+ * Created by CodeGenerator on 2020/02/19.
  */
 public interface DayreportlogService extends Service<Dayreportlog> {
 
