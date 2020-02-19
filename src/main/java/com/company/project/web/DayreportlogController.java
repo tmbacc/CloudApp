@@ -5,6 +5,10 @@ import com.company.project.model.Dayreportlog;
 import com.company.project.service.DayreportlogService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
+import tk.mybatis.mapper.entity.Condition;
+import tk.mybatis.mapper.entity.Example.Criteria;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,10 +24,7 @@ import java.util.List;
 @RequestMapping("/dayreportlog")
 public class DayreportlogController {
     @Resource
-    private DayreportlogService dayreportlogService;
-
-    
-    
+    private DayreportlogService dayreportlogService;   
     
     @PostMapping("/add")
     public Result add(Dayreportlog dayreportlog) {
@@ -47,6 +48,14 @@ public class DayreportlogController {
     public Result detail(@RequestParam Integer id) {
         Dayreportlog dayreportlog = dayreportlogService.findById(id);
         return ResultGenerator.genSuccessResult(dayreportlog);
+    }
+    @PostMapping("/searchdayreportlog")
+    public Result searchuser(Dayreportlog dayreportlog) {
+    	Condition condition=new Condition(Dayreportlog.class);    
+    	Criteria  criteria=condition.createCriteria();
+    	criteria.andCondition("reportdatastr = '" +dayreportlog.getReportdatastr() + "'");    	 
+        List<Dayreportlog> list=dayreportlogService.findByCondition(condition);       
+        return ResultGenerator.genSuccessResult(list);
     }
 
     @PostMapping("/list")
