@@ -50,13 +50,19 @@ public class DayreportlogController {
         return ResultGenerator.genSuccessResult(dayreportlog);
     }
     @PostMapping("/searchdayreportlog")
-    public Result searchuser(Dayreportlog dayreportlog) {
+    public Result searchdayreportlog(@RequestParam(defaultValue = "2020-02-17") String searchday,@RequestParam(defaultValue = "") String robottype) {
     	Condition condition=new Condition(Dayreportlog.class);    
     	Criteria  criteria=condition.createCriteria();
-    	criteria.andCondition("reportdatastr = '" +dayreportlog.getReportdatastr() + "'");    	 
+    	criteria.andCondition("reportdatastr = '" +searchday + "'");   
+    	if(robottype != null && robottype.length() != 0) {
+    		criteria.andCondition("productcode = '" +robottype + "'");   
+    	}
+    	
+    	
         List<Dayreportlog> list=dayreportlogService.findByCondition(condition);       
         return ResultGenerator.genSuccessResult(list);
     }
+ 
     @PostMapping("/list")
     public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
