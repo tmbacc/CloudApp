@@ -46,7 +46,7 @@ public class Dayreportlog {
 
     private Date reportdate;
 
-    private String reportdatastr;
+    private Date reportdatastr;
 
     private Date createdate;
 
@@ -321,14 +321,14 @@ public class Dayreportlog {
     /**
      * @return reportdatastr
      */
-    public String getReportdatastr() {
+    public Date getReportdatastr() {
         return reportdatastr;
     }
 
     /**
      * @param reportdatastr
      */
-    public void setReportdatastr(String reportdatastr) {
+    public void setReportdatastr(Date reportdatastr) {
         this.reportdatastr = reportdatastr;
     }
 

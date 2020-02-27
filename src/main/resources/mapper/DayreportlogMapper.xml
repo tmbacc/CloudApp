@@ -24,7 +24,7 @@
     <result column="servicedevicesnums" jdbcType="VARCHAR" property="servicedevicesnums" />
     <result column="delivernums" jdbcType="INTEGER" property="delivernums" />
     <result column="reportdate" jdbcType="TIMESTAMP" property="reportdate" />
-    <result column="reportdatastr" jdbcType="VARCHAR" property="reportdatastr" />
+    <result column="reportdatastr" jdbcType="TIMESTAMP" property="reportdatastr" />
     <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
     <result column="updatedate" jdbcType="TIMESTAMP" property="updatedate" />
   </resultMap>

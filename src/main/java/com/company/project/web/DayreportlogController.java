@@ -50,10 +50,27 @@ public class DayreportlogController {
         return ResultGenerator.genSuccessResult(dayreportlog);
     }
     @PostMapping("/searchdayreportlog")
-    public Result searchdayreportlog(@RequestParam(defaultValue = "2020-02-17") String searchday,@RequestParam(defaultValue = "") String robottype) {
-    	Condition condition=new Condition(Dayreportlog.class);    
+    public Result searchdayreportlog(@RequestParam(defaultValue = "2020-02-02") String searchday,@RequestParam(defaultValue = "") String robottype,@RequestParam(defaultValue = "") String searchdayend) {
+    	StringBuilder daystart=new StringBuilder();
+    	StringBuilder dayend=new StringBuilder();    	
+    	Condition condition=new Condition(Dayreportlog.class); 
+    	
+    	
     	Criteria  criteria=condition.createCriteria();
-    	criteria.andCondition("reportdatastr = '" +searchday + "'");   
+    	criteria.andCondition("reportdatastr >= '" +daystart.append(searchday).append(" 00:00:00")+"'"); 
+    	System.out.println("#######################"+daystart);
+    	System.out.println("#######################"+dayend);
+    
+    	if(searchdayend != null && searchdayend.length() != 0) {
+    		
+    		criteria.andCondition("reportdatastr <= '" +dayend.append(searchdayend) .append(" 23:59:59")+ "'");  
+    	}else {
+    		
+    		criteria.andCondition("reportdatastr <= '" +dayend.append(searchday) .append(" 23:59:59")+ "'"); 
+    	}
+    	System.out.println("#######################"+daystart);
+    	System.out.println("#######################"+dayend);
+    	
     	if(robottype != null && robottype.length() != 0) {
     		criteria.andCondition("productcode = '" +robottype + "'");   
     	}
